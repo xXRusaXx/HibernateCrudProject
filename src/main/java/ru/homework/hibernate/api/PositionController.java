@@ -1,6 +1,5 @@
 package ru.homework.hibernate.api;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.homework.hibernate.model.dto.PositionDto;
@@ -13,9 +12,8 @@ import java.util.List;
 @RequestMapping("/positions")
 public class PositionController {
 
-    private PositionService service;
+    private final PositionService service;
 
-    @Autowired
     public PositionController(PositionService service) {
         this.service = service;
     }

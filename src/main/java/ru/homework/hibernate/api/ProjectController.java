@@ -1,10 +1,8 @@
 package ru.homework.hibernate.api;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.homework.hibernate.model.dto.ProjectDto;
-import ru.homework.hibernate.model.pojo.Employee;
 import ru.homework.hibernate.model.pojo.Project;
 import ru.homework.hibernate.service.ProjectService;
 
@@ -14,9 +12,8 @@ import java.util.List;
 @RequestMapping("/projects")
 public class ProjectController {
 
-    private ProjectService service;
+    private final ProjectService service;
 
-    @Autowired
     public ProjectController(ProjectService service) {
         this.service = service;
     }

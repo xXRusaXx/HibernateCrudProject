@@ -1,6 +1,5 @@
 package ru.homework.hibernate.api;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.homework.hibernate.model.dto.EmployeeDetailsDto;
@@ -13,9 +12,8 @@ import java.util.List;
 @RequestMapping("/employeeDetails")
 public class EmployeeDetailsController {
 
-    private EmployeeDetailsService service;
+    private final EmployeeDetailsService service;
 
-    @Autowired
     public EmployeeDetailsController(EmployeeDetailsService service) {
         this.service = service;
     }

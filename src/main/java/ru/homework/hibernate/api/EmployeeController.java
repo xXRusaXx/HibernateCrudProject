@@ -1,6 +1,5 @@
 package ru.homework.hibernate.api;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.homework.hibernate.model.dto.EmployeeDto;
@@ -13,9 +12,8 @@ import java.util.List;
 @RequestMapping("/employees")
 public class EmployeeController {
 
-    private EmployeeService service;
+    private final EmployeeService service;
 
-    @Autowired
     public EmployeeController(EmployeeService service) {
         this.service = service;
     }
@@ -75,9 +73,8 @@ public class EmployeeController {
         }
     }
 
-    // Обновление пользователя
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody Employee employee) {
+    public ResponseEntity<?> updateUser(@RequestBody Employee employee) {
         try {
             EmployeeDto updated = service.update(employee);
 
@@ -87,7 +84,6 @@ public class EmployeeController {
         }
     }
 
-    // Удаление пользователя
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable Long id) {
         try {
